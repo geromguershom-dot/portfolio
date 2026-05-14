@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAMA NKOA GUERSHOM — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --lime:#C8F135;--lime2:#a8d010;
+  --ink:#080808;--ink2:#111;--ink3:#1a1a1a;
+  --white:#fff;--muted:#666;--muted2:#999;
+  --purple:#7C3AED;--cyan:#06B6D4;--orange:#F97316;--pink:#EC4899;--red:#EF4444;--green:#22C55E;
+  --card:#141414;--border:rgba(255,255,255,0.08);
+  --r:14px;--r2:20px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--white);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+input,textarea{font-family:inherit}
+img{max-width:100%}
+
+/* CURSOR */
+.cur,.cur2{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
+.cur{width:10px;height:10px;background:var(--lime);transition:width .15s,height .15s}
+.cur2{width:32px;height:32px;border:1.5px solid rgba(200,241,53,.4);transition:left .12s ease,top .12s ease}
+@media(max-width:768px){.cur,.cur2{display:none}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;display:flex;align-items:center;gap:2px}
+.logo em{color:var(--lime);font-style:normal}
+.nav-center{display:flex;gap:4px}
+.nav-btn{background:none;border:none;padding:8px 16px;border-radius:100px;font-size:13px;font-weight:500;color:var(--muted);transition:color .2s,background .2s}
+.nav-btn:hover,.nav-btn.active{color:var(--white);background:rgba(255,255,255,.07)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.notif-btn{position:relative;background:none;border:1px solid var(--border);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:16px;transition:all .2s}
+.notif-btn:hover{border-color:rgba(255,255,255,.2);color:var(--white)}
+.notif-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;background:var(--red);border-radius:50%;border:1.5px solid var(--ink)}
+.nav-cta{background:var(--lime);color:var(--ink);border:none;padding:9px 20px;border-radius:100px;font-size:13px;font-weight:700;font-family:'Syne',sans-serif;transition:all .2s}
+.nav-cta:hover{background:#d4f748;transform:scale(1.03)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
+.hamburger span{width:22px;height:1.5px;background:var(--white);border-radius:2px;transition:all .3s}
+
+/* PAGES */
+.page{display:none;min-height:100vh;padding-top:64px;animation:fadeIn .35s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ========= HOME PAGE ========= */
+.hero{min-height:calc(100vh - 64px);display:flex;align-items:center;padding:60px 40px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse 55% 55% at 75% 35%,rgba(124,58,237,.18) 0%,transparent 60%),
+  radial-gradient(ellipse 40% 40% at 15% 75%,rgba(200,241,53,.07) 0%,transparent 50%),
+  radial-gradient(ellipse 35% 35% at 85% 80%,rgba(249,115,22,.1) 0%,transparent 50%)}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px}
+.hero-content{position:relative;z-index:2;max-width:860px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,241,53,.1);border:1px solid rgba(200,241,53,.22);padding:7px 16px;border-radius:100px;font-size:12px;font-weight:600;color:var(--lime);letter-spacing:.04em;margin-bottom:28px;animation:up .6s ease both}
+.badge-dot{width:6px;height:6px;background:var(--lime);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+h1.hero-title{font-family:'Syne',sans-serif;font-size:clamp(44px,7.5vw,88px);font-weight:800;line-height:1;letter-spacing:-.03em;margin-bottom:24px;animation:up .65s .08s ease both}
+h1 .acc{color:var(--lime)}
+h1 .out{-webkit-text-stroke:1.5px rgba(255,255,255,.25);color:transparent}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.5);max-width:500px;line-height:1.75;margin-bottom:40px;font-weight:300;animation:up .65s .16s ease both}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:up .65s .24s ease both}
+.btn-l{display:inline-flex;align-items:center;gap:9px;background:var(--lime);color:var(--ink);padding:13px 26px;border-radius:100px;font-size:14px;font-weight:700;font-family:'Syne',sans-serif;border:none;transition:all .2s}
+.btn-l:hover{background:#d4f748;transform:translateY(-2px);box-shadow:0 10px 28px rgba(200,241,53,.25)}
+.btn-o{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--border);color:var(--white);padding:13px 26px;border-radius:100px;font-size:14px;font-weight:400;background:none;transition:all .2s}
+.btn-o:hover{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.04)}
+.hero-stats{display:flex;gap:44px;margin-top:60px;animation:up .65s .32s ease both;flex-wrap:wrap}
+.stat-n{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;line-height:1}
+.stat-n em{color:var(--lime);font-style:normal}
+.stat-l{font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:.02em}
+/* floating cards */
+.hero-float{position:absolute;right:5%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;z-index:2;animation:up .8s .3s ease both}
+.f-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;min-width:200px;backdrop-filter:blur(10px)}
+.f-card-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.f-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.f-name{font-size:13px;font-weight:600}
+.f-time{font-size:11px;color:var(--muted)}
+.f-msg{font-size:12px;color:rgba(255,255,255,.55);line-height:1.5}
+.f-stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px}
+.f-stat-num{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--lime)}
+.f-stat-lbl{font-size:11px;color:var(--muted);margin-top:2px}
+/* marquee */
+.marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;background:var(--ink2)}
+.mq-track{display:flex;gap:40px;animation:mq 22s linear infinite;white-space:nowrap}
+.mq-item{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);flex-shrink:0;display:flex;align-items:center;gap:10px}
+.mq-dot{width:4px;height:4px;border-radius:50%;background:var(--lime)}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ABOUT SECTION */
+.section{padding:88px 40px}
+.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--lime);margin-bottom:16px}
+.sec-label::before{content:'';width:20px;height:1.5px;background:var(--lime);display:inline-block}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(28px,4.5vw,48px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
+.sec-sub{color:rgba(255,255,255,.4);font-size:15px;font-weight:300;max-width:440px;line-height:1.75;margin-bottom:52px}
+
+/* about grid */
+.ab-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start}
+.ab-photo{width:100%;aspect-ratio:.85;background:linear-gradient(135deg,rgba(124,58,237,.3),rgba(6,182,212,.2));border-radius:var(--r2);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ab-photo-inner{font-size:80px;position:relative;z-index:2}
+.ab-photo::after{content:'';position:absolute;bottom:0;left:0;right:0;height:45%;background:linear-gradient(to top,rgba(20,20,20,.95),transparent)}
+.ab-chips{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3;white-space:nowrap}
+.chip{background:rgba(8,8,8,.8);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:100px;padding:6px 14px;font-size:11px;font-weight:600;color:rgba(255,255,255,.7)}
+.chip.lime{border-color:rgba(200,241,53,.3);color:var(--lime)}
+.ab-text p{font-size:15px;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:14px;font-weight:300}
+.ab-vals{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.val-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;transition:border-color .2s}
+.val-card:hover{border-color:rgba(255,255,255,.18)}
+.val-icon{font-size:22px;margin-bottom:10px}
+.val-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px}
+.val-desc{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* SKILLS */
+.skills-bg{background:var(--ink2)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.sk-card{background:var(--ink);border:1px solid var(--border);border-radius:var(--r);padding:24px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+.sk-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.15)}
+.sk-top{height:3px;position:absolute;top:0;left:0;right:0;border-radius:var(--r) var(--r) 0 0}
+.sk-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
+.sk-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.sk-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:18px}
+.sk-tags{display:flex;flex-wrap:wrap;gap:6px}
+.sk-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:rgba(255,255,255,.55)}
+
+/* PROJECTS */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:transform .3s,border-color .3s;cursor:pointer}
+.proj-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.18)}
+.proj-thumb{height:190px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
+.proj-lbl{position:absolute;top:14px;right:14px;background:rgba(8,8,8,.75);backdrop-filter:blur(8px);padding:4px 12px;border-radius:100px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.proj-status{position:absolute;bottom:14px;left:14px;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600}
+.status-dot{width:6px;height:6px;border-radius:50%}
+.proj-body{padding:22px}
+.proj-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:6px}
+.proj-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.proj-stack{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.p-badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.05em}
+.proj-links{display:flex;gap:10px}
+.proj-link{font-size:12px;font-weight:600;color:var(--lime);display:flex;align-items:center;gap:5px;transition:gap .2s}
+.proj-link:hover{gap:8px}
+
+/* BLOG */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:transform .3s,border-color .3s;cursor:pointer}
+.blog-card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.15)}
+.blog-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:44px;position:relative}
+.blog-cat{position:absolute;top:14px;left:14px;padding:4px 12px;border-radius:100px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.blog-body{padding:20px}
+.blog-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;line-height:1.3}
+.blog-excerpt{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.blog-meta{display:flex;align-items:center;gap:14px;font-size:11px;color:var(--muted2)}
+.blog-meta span{display:flex;align-items:center;gap:5px}
+
+/* TESTIMONIALS */
+.testi-bg{background:var(--ink2)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.testi-card{background:var(--ink);border:1px solid var(--border);border-radius:var(--r);padding:24px;transition:border-color .2s}
+.testi-card:hover{border-color:rgba(255,255,255,.15)}
+.testi-stars{display:flex;gap:3px;margin-bottom:14px}
+.star{color:var(--lime);font-size:14px}
+.testi-text{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:20px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.testi-name{font-size:13px;font-weight:700}
+.testi-role{font-size:11px;color:var(--muted)}
+/* add testimonial */
+.testi-form-wrap{margin-top:40px;background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:32px;max-width:600px}
+.testi-form-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.form-input{width:100%;background:var(--ink2);border:1px solid var(--border);border-radius:10px;padding:11px 14px;font-size:14px;color:var(--white);outline:none;transition:border-color .2s}
+.form-input:focus{border-color:rgba(200,241,53,.4)}
+.form-input::placeholder{color:var(--muted2)}
+textarea.form-input{resize:vertical;min-height:90px}
+.star-select{display:flex;gap:6px;margin-top:4px}
+.star-btn{background:none;border:none;font-size:22px;cursor:pointer;color:rgba(255,255,255,.2);transition:color .15s}
+.star-btn.on{color:var(--lime)}
+
+/* VISITOR SPACE */
+.visitor-bg{background:var(--ink2)}
+.visitor-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.vcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px}
+.vcard-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.vcard-ico{font-size:22px}
+/* online visitors */
+.visitors-list{display:flex;flex-direction:column;gap:12px;max-height:320px;overflow-y:auto}
+.visitor-item{display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;transition:background .2s}
+.visitor-item:hover{background:rgba(255,255,255,.04)}
+.v-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+.v-info{flex:1;min-width:0}
+.v-name{font-size:13px;font-weight:600}
+.v-loc{font-size:11px;color:var(--muted)}
+.v-status{display:flex;align-items:center;gap:5px;font-size:11px}
+.v-dot{width:7px;height:7px;border-radius:50%}
+.v-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:11px;font-weight:600;color:var(--muted);transition:all .2s;flex-shrink:0}
+.v-btn:hover{border-color:var(--lime);color:var(--lime)}
+/* register */
+.reg-form{display:flex;flex-direction:column;gap:12px}
+.reg-note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:4px}
+/* stats */
+.vstat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.vstat{background:var(--ink);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:center}
+.vstat-n{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--lime)}
+.vstat-l{font-size:11px;color:var(--muted);margin-top:2px}
+/* guestbook */
+.guestbook{display:flex;flex-direction:column;gap:12px;max-height:280px;overflow-y:auto}
+.gb-item{background:var(--ink);border:1px solid var(--border);border-radius:10px;padding:14px}
+.gb-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.gb-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.gb-name{font-size:13px;font-weight:600}
+.gb-time{font-size:10px;color:var(--muted);margin-left:auto}
+.gb-msg{font-size:13px;color:rgba(255,255,255,.55);line-height:1.5}
+.gb-form{margin-top:16px;display:flex;gap:10px}
+.gb-form input{flex:1;background:var(--ink);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--white);outline:none;transition:border-color .2s}
+.gb-form input:focus{border-color:rgba(200,241,53,.4)}
+.gb-send{background:var(--lime);color:var(--ink);border:none;border-radius:10px;padding:10px 16px;font-size:13px;font-weight:700;transition:all .2s}
+.gb-send:hover{background:#d4f748}
+
+/* CHAT */
+.chat-bg{background:var(--ink)}
+.chat-wrap{display:grid;grid-template-columns:280px 1fr;gap:0;background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;height:620px}
+.chat-sidebar{border-right:1px solid var(--border);display:flex;flex-direction:column}
+.chat-sidebar-head{padding:18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.chat-sidebar-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700}
+.chat-online{font-size:11px;color:var(--green);display:flex;align-items:center;gap:5px}
+.chat-online::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%}
+.chat-list{flex:1;overflow-y:auto;padding:8px}
+.chat-item{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;cursor:pointer;transition:background .2s;position:relative}
+.chat-item:hover{background:rgba(255,255,255,.05)}
+.chat-item.active{background:rgba(200,241,53,.08);border:1px solid rgba(200,241,53,.15)}
+.chat-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;position:relative}
+.online-ind{position:absolute;bottom:1px;right:1px;width:9px;height:9px;background:var(--green);border-radius:50%;border:2px solid var(--card)}
+.ci-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.ci-preview{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px}
+.ci-time{position:absolute;top:10px;right:10px;font-size:10px;color:var(--muted2)}
+.ci-unread{position:absolute;bottom:10px;right:10px;width:16px;height:16px;background:var(--lime);border-radius:50%;font-size:10px;font-weight:700;color:var(--ink);display:flex;align-items:center;justify-content:center}
+/* chat main */
+.chat-main{display:flex;flex-direction:column}
+.chat-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.chat-head-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
+.chat-head-name{font-weight:700;font-size:15px}
+.chat-head-status{font-size:12px;color:var(--green)}
+.chat-head-actions{margin-left:auto;display:flex;gap:8px}
+.chat-action-btn{background:none;border:1px solid var(--border);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;transition:all .2s}
+.chat-action-btn:hover{border-color:rgba(255,255,255,.2);color:var(--white)}
+.chat-messages{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+.msg{display:flex;gap:10px;max-width:75%;animation:msgIn .25s ease}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.msg.mine{align-self:flex-end;flex-direction:row-reverse}
+.msg-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px}
+.msg-body{}
+.msg-bubble{padding:10px 14px;border-radius:16px;font-size:13px;line-height:1.55}
+.msg.theirs .msg-bubble{background:var(--ink3);border:1px solid var(--border);border-bottom-left-radius:4px;color:rgba(255,255,255,.85)}
+.msg.mine .msg-bubble{background:var(--lime);color:var(--ink);border-bottom-right-radius:4px;font-weight:500}
+.msg-time{font-size:10px;color:var(--muted2);margin-top:4px;padding:0 4px}
+.msg.mine .msg-time{text-align:right}
+.typing{display:flex;align-items:center;gap:5px;padding:10px 14px;background:var(--ink3);border:1px solid var(--border);border-radius:16px;border-bottom-left-radius:4px;width:fit-content}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:t 1.2s infinite}
+.typing span:nth-child(2){animation-delay:.2s}
+.typing span:nth-child(3){animation-delay:.4s}
+@keyframes t{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.chat-input-bar{padding:14px 20px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.chat-input{flex:1;background:var(--ink3);border:1px solid var(--border);border-radius:100px;padding:10px 18px;font-size:13px;color:var(--white);outline:none;transition:border-color .2s}
+.chat-input:focus{border-color:rgba(200,241,53,.35)}
+.chat-input::placeholder{color:var(--muted2)}
+.chat-send{background:var(--lime);color:var(--ink);border:none;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s;flex-shrink:0}
+.chat-send:hover{background:#d4f748;transform:scale(1.08)}
+.emoji-btn{background:none;border:1px solid var(--border);width:36px;height:36px;border-radius:50%;font-size:16px;transition:all .2s;flex-shrink:0}
+.emoji-btn:hover{border-color:rgba(255,255,255,.2)}
+
+/* contact form section */
+.contact-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact-info h2{margin-bottom:20px}
+.contact-info p{font-size:15px;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:28px;font-weight:300}
+.contact-links{display:flex;flex-direction:column;gap:12px}
+.c-link{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);transition:all .2s}
+.c-link:hover{border-color:rgba(255,255,255,.18);transform:translateX(4px)}
+.c-link-ico{font-size:20px;width:36px}
+.c-link-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.c-link-val{font-size:14px;font-weight:600}
+.contact-form-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:32px}
+.contact-form-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px}
+.contact-form-sub{font-size:13px;color:var(--muted);margin-bottom:24px}
+
+/* FOOTER */
+footer{padding:40px;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
+.foot-logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800}
+.foot-logo em{color:var(--lime);font-style:normal}
+.foot-links{display:flex;gap:24px;justify-content:center}
+.foot-links a{font-size:13px;color:var(--muted);transition:color .2s}
+.foot-links a:hover{color:var(--white)}
+.foot-copy{font-size:12px;color:var(--muted);text-align:right}
+.foot-copy em{color:var(--lime);font-style:normal}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--ink3);border:1px solid var(--border);border-radius:12px;padding:14px 20px;display:flex;align-items:center;gap:12px;font-size:13px;font-weight:500;z-index:9999;transform:translateY(80px);opacity:0;transition:all .3s;max-width:300px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast-ico{font-size:18px}
+.toast-close{margin-left:auto;background:none;border:none;color:var(--muted);font-size:18px;line-height:1}
+
+/* MOBILE MENU */
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);z-index:490;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--white);transition:color .2s}
+.mob-menu a:hover{color:var(--lime)}
+.mob-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--white);font-size:28px}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+/* UTILS */
+.mt-8{margin-top:8px}.mt-16{margin-top:16px}.mt-24{margin-top:24px}
+.text-lime{color:var(--lime)}
+.pill{display:inline-block;padding:4px 12px;border-radius:100px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-float{display:none}
+  .ab-grid{grid-template-columns:1fr;gap:36px}
+  .ab-photo{max-width:260px;margin:0 auto}
+  .visitor-grid{grid-template-columns:1fr}
+  .chat-wrap{grid-template-columns:1fr;height:auto}
+  .chat-sidebar{max-height:220px}
+  .contact-split{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr;text-align:center}
+  .foot-copy{text-align:center}
+}
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-center{display:none}
+  .nav-right .notif-btn{display:none}
+  .hamburger{display:flex}
+  .section{padding:64px 20px}
+  .hero{padding:48px 20px}
+  .form-row{grid-template-columns:1fr}
+  .vstat-grid{grid-template-columns:repeat(3,1fr)}
+  footer{padding:28px 20px}
+}
+@media(max-width:480px){
+  h1.hero-title{font-size:38px}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+  .hero-stats{gap:24px}
+  .ab-vals{grid-template-columns:1fr}
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init({ publicKey: "PebyEJkWbsaCKT7Ir" });
+  })();
+</script>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cur" id="cur"></div>
+<div class="cur2" id="cur2"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">G<em>.</em>dev</div>
+  <div class="nav-center">
+    <button class="nav-btn active" onclick="showPage('home',this)">Accueil</button>
+    <button class="nav-btn" onclick="showPage('about',this)">À propos</button>
+    <button class="nav-btn" onclick="showPage('projects',this)">Projets</button>
+    <button class="nav-btn" onclick="showPage('blog',this)">Blog</button>
+    <button class="nav-btn" onclick="showPage('visitors',this)">Visiteurs</button>
+    <button class="nav-btn" onclick="showPage('chat',this)">
+      💬 Chat <span id="chat-badge" style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;background:var(--red);border-radius:50%;font-size:9px;font-weight:700;color:white;margin-left:4px">2</span>
+    </button>
+  </div>
+  <div class="nav-right">
+    <button class="notif-btn" onclick="showPage('chat',document.querySelector('.nav-btn:nth-child(6)'))">💬<span class="notif-dot"></span></button>
+    <button class="nav-cta" onclick="showPage('contact',null)">Contact</button>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="#" onclick="showPage('home',null);closeMob()">Accueil</a>
+  <a href="#" onclick="showPage('about',null);closeMob()">À propos</a>
+  <a href="#" onclick="showPage('projects',null);closeMob()">Projets</a>
+  <a href="#" onclick="showPage('blog',null);closeMob()">Blog</a>
+  <a href="#" onclick="showPage('visitors',null);closeMob()">Visiteurs</a>
+  <a href="#" onclick="showPage('chat',null);closeMob()">💬 Chat</a>
+  <a href="#" onclick="showPage('contact',null);closeMob()">Contact</a>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-ico">✅</span>
+  <span id="toast-msg">Message envoyé !</span>
+  <button class="toast-close" onclick="hideToast()">×</button>
+</div>
+
+<!-- ======= HOME PAGE ======= -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-bg"></div>
+    <div class="hero-content">
+      <div class="badge"><span class="badge-dot"></span>Disponible pour de nouveaux projets</div>
+      <h1 class="hero-title">
+        <span style="display:block">Je construis</span>
+        <span style="display:block" class="acc">des expériences</span>
+        <span style="display:block" class="out">numériques.</span>
+      </h1>
+      <p class="hero-sub">Développeur web & logiciel basé à Yaoundé 🇨🇲. Je construis des sites et apps qui fonctionnent vraiment — propres, rapides, déployés en production.</p>
+      <div class="hero-btns">
+        <button class="btn-l" onclick="showPage('projects',null)">Voir mes projets →</button>
+        <button class="btn-o" onclick="showPage('chat',null)">💬 Me parler en direct</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-n">3<em>+</em></div><div class="stat-l">Ans d'expérience</div></div>
+        <div><div class="stat-n">3</div><div class="stat-l">Projets GitHub</div></div>
+        <div><div class="stat-n">8<em>+</em></div><div class="stat-l">Technologies</div></div>
+        <div><div class="stat-n">24<em>h</em></div><div class="stat-l">Temps de réponse</div></div>
+      </div>
+    </div>
+    <!-- floating cards -->
+    <div class="hero-float">
+      <div class="f-card">
+        <div class="f-card-top">
+          <div class="f-avatar" style="background:rgba(124,58,237,.2);color:#a78bfa">KA</div>
+          <div><div class="f-name">Kouassi André</div><div class="f-time">il y a 2 min</div></div>
+        </div>
+        <div class="f-msg">Super travail sur mon site e-commerce ! 🚀</div>
+      </div>
+      <div class="f-stat-card">
+        <div class="f-stat-num">⭐ 4.9</div>
+        <div class="f-stat-lbl">Note moyenne clients</div>
+      </div>
+      <div class="f-card">
+        <div class="f-card-top">
+          <div class="f-avatar" style="background:rgba(6,182,212,.2);color:#67e8f9">MF</div>
+          <div><div class="f-name">Marie Fotso</div><div class="f-time">En ligne</div></div>
+        </div>
+        <div class="f-msg">Bonjour, j'ai un projet à discuter 👋</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- marquee -->
+  <div class="marquee-wrap">
+    <div class="mq-track">
+      <div class="mq-item"><span class="mq-dot"></span>React.js</div>
+      <div class="mq-item"><span class="mq-dot"></span>Node.js</div>
+      <div class="mq-item"><span class="mq-dot"></span>TypeScript</div>
+      <div class="mq-item"><span class="mq-dot"></span>Python</div>
+      <div class="mq-item"><span class="mq-dot"></span>PostgreSQL</div>
+      <div class="mq-item"><span class="mq-dot"></span>Docker</div>
+      <div class="mq-item"><span class="mq-dot"></span>Next.js</div>
+      <div class="mq-item"><span class="mq-dot"></span>REST API</div>
+      <div class="mq-item"><span class="mq-dot"></span>MongoDB</div>
+      <div class="mq-item"><span class="mq-dot"></span>Figma</div>
+      <div class="mq-item"><span class="mq-dot"></span>Git / CI-CD</div>
+      <div class="mq-item"><span class="mq-dot"></span>React.js</div>
+      <div class="mq-item"><span class="mq-dot"></span>Node.js</div>
+      <div class="mq-item"><span class="mq-dot"></span>TypeScript</div>
+      <div class="mq-item"><span class="mq-dot"></span>Python</div>
+      <div class="mq-item"><span class="mq-dot"></span>PostgreSQL</div>
+      <div class="mq-item"><span class="mq-dot"></span>Docker</div>
+      <div class="mq-item"><span class="mq-dot"></span>Next.js</div>
+      <div class="mq-item"><span class="mq-dot"></span>REST API</div>
+      <div class="mq-item"><span class="mq-dot"></span>MongoDB</div>
+      <div class="mq-item"><span class="mq-dot"></span>Figma</div>
+      <div class="mq-item"><span class="mq-dot"></span>Git / CI-CD</div>
+    </div>
+  </div>
+
+  <!-- skills teaser -->
+  <section class="section skills-bg">
+    <div class="sec-label reveal">Stack technique</div>
+    <h2 class="sec-title reveal">Ce que je maîtrise</h2>
+    <p class="sec-sub reveal">Des outils modernes, choisis pour construire des produits robustes.</p>
+    <div class="skills-grid">
+      <div class="sk-card reveal"><div class="sk-top" style="background:var(--purple)"></div><div class="sk-icon" style="background:rgba(124,58,237,.15)">⚛️</div><div class="sk-name">Frontend</div><div class="sk-desc">Interfaces modernes et réactives avec les meilleurs frameworks JS.</div><div class="sk-tags"><span class="sk-tag">React</span><span class="sk-tag">Next.js</span><span class="sk-tag">TypeScript</span><span class="sk-tag">Tailwind</span></div></div>
+      <div class="sk-card reveal"><div class="sk-top" style="background:var(--orange)"></div><div class="sk-icon" style="background:rgba(249,115,22,.15)">⚙️</div><div class="sk-name">Backend</div><div class="sk-desc">APIs performantes et architectures serveur fiables.</div><div class="sk-tags"><span class="sk-tag">Node.js</span><span class="sk-tag">Python</span><span class="sk-tag">Express</span><span class="sk-tag">PostgreSQL</span></div></div>
+      <div class="sk-card reveal"><div class="sk-top" style="background:var(--cyan)"></div><div class="sk-icon" style="background:rgba(6,182,212,.15)">🛠️</div><div class="sk-name">DevOps</div><div class="sk-desc">Déploiement continu, containerisation et infrastructure cloud.</div><div class="sk-tags"><span class="sk-tag">Docker</span><span class="sk-tag">Git</span><span class="sk-tag">Linux</span><span class="sk-tag">CI/CD</span></div></div>
+      <div class="sk-card reveal"><div class="sk-top" style="background:var(--pink)"></div><div class="sk-icon" style="background:rgba(236,72,153,.15)">🎨</div><div class="sk-name">Design</div><div class="sk-desc">UI soignée, accessible et mémorable.</div><div class="sk-tags"><span class="sk-tag">Figma</span><span class="sk-tag">Animation</span><span class="sk-tag">Responsive</span></div></div>
+    </div>
+  </section>
+
+  <!-- testimonials teaser -->
+  <section class="section testi-bg">
+    <div class="sec-label reveal">Témoignages</div>
+    <h2 class="sec-title reveal">Ce qu'ils disent</h2>
+    <p class="sec-sub reveal">Des retours clients authentiques qui me motivent chaque jour.</p>
+    <div class="testi-grid" id="home-testi"></div>
+    <div style="text-align:center;margin-top:36px">
+      <button class="btn-o reveal" onclick="showPage('testimonials',null)">Voir tous les témoignages →</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-logo">G<em>.</em>dev</div>
+    <div class="foot-links">
+      <a href="#" onclick="showPage('home',null)">Accueil</a>
+      <a href="#" onclick="showPage('projects',null)">Projets</a>
+      <a href="#" onclick="showPage('blog',null)">Blog</a>
+      <a href="#" onclick="showPage('contact',null)">Contact</a>
+    </div>
+    <div class="foot-copy">© 2025 <em>NAMA NKOA GUERSHOM</em> — Fait avec ❤️</div>
+  </footer>
+</div>
+
+<!-- ======= ABOUT PAGE ======= -->
+<div class="page" id="page-about">
+  <section class="section">
+    <div class="sec-label">À propos</div>
+    <div class="ab-grid">
+      <div>
+        <div class="ab-photo" style="overflow:hidden;padding:0;background:none">
+          <img src="data:image/jpeg;base64,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" alt="NAMA NKOA GUERSHOM" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:20px;display:block">
+          <div class="ab-chips">
+            <span class="chip lime">🟢 Disponible</span>
+            <span class="chip">📍 Yaoundé</span>
+          </div>
+        </div>
+      </div>
+      <div class="ab-text">
+        <h2 class="sec-title">Passionné de code,<br>amoureux du détail.</h2>
+        <p>Je suis <strong>NAMA NKOA GUERSHOM</strong>, développeur web & logiciel basé à Yaoundé, Cameroun. Je crée des applications web qui mêlent performance technique et esthétique soignée.</p>
+        <p>Mon approche : comprendre le problème avant d'écrire la première ligne de code. Je pense que le bon logiciel, c'est celui qui répond exactement au besoin — ni plus, ni moins.</p>
+        <p>En dehors du code, je contribue à des projets open source locaux et j'adore partager mes connaissances à travers mon blog et des sessions de mentoring.</p>
+        <div class="ab-vals">
+          <div class="val-card reveal"><div class="val-icon">🎯</div><div class="val-name">Précision</div><div class="val-desc">Chaque pixel, chaque ligne compte.</div></div>
+          <div class="val-card reveal"><div class="val-icon">🚀</div><div class="val-name">Performance</div><div class="val-desc">Code rapide, produit rapide.</div></div>
+          <div class="val-card reveal"><div class="val-icon">🤝</div><div class="val-name">Collaboration</div><div class="val-desc">On construit mieux ensemble.</div></div>
+          <div class="val-card reveal"><div class="val-icon">📚</div><div class="val-name">Apprentissage</div><div class="val-desc">Toujours en train de grandir.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- timeline -->
+  <section class="section skills-bg">
+    <div class="sec-label">Parcours</div>
+    <h2 class="sec-title">Mon expérience</h2>
+    <div style="max-width:640px;margin-top:40px">
+      <div style="display:grid;grid-template-columns:100px 1fr;gap:28px;padding-bottom:36px;position:relative" class="reveal">
+        <div style="position:absolute;left:116px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--border),transparent)"></div>
+        <div style="font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--lime);text-align:right;padding-top:4px">2024 – Présent</div>
+        <div style="padding-left:32px;position:relative">
+          <div style="position:absolute;left:0;top:8px;width:9px;height:9px;border-radius:50%;background:var(--lime);border:2px solid var(--ink);box-shadow:0 0 10px rgba(200,241,53,.4)"></div>
+          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:4px">Développeur Full-Stack Freelance</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Indépendant · Yaoundé</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7">Développement d'applications web sur mesure pour des clients locaux et internationaux. Gestion complète des projets de la conception à la production.</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:100px 1fr;gap:28px;padding-bottom:36px;position:relative" class="reveal">
+        <div style="position:absolute;left:116px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--border),transparent)"></div>
+        <div style="font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--lime);text-align:right;padding-top:4px">2023</div>
+        <div style="padding-left:32px;position:relative">
+          <div style="position:absolute;left:0;top:8px;width:9px;height:9px;border-radius:50%;background:var(--lime);border:2px solid var(--ink2);box-shadow:0 0 10px rgba(200,241,53,.4)"></div>
+          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:4px">Développeur Web Junior</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Startup Tech · Douala</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7">Intégration d'interfaces React, développement d'APIs RESTful avec Node.js. Travail en équipe Agile/Scrum.</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:100px 1fr;gap:28px" class="reveal">
+        <div style="font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--lime);text-align:right;padding-top:4px">2021</div>
+        <div style="padding-left:32px;position:relative">
+          <div style="position:absolute;left:0;top:8px;width:9px;height:9px;border-radius:50%;background:var(--lime);border:2px solid var(--ink2);box-shadow:0 0 10px rgba(200,241,53,.4)"></div>
+          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:4px">Licence en Informatique</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Université de Yaoundé I</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7">Formation en algorithmique, bases de données, réseaux. Projets en Java, Python et Web.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="foot-logo">G<em>.</em>dev</div>
+    <div class="foot-links"><a href="#" onclick="showPage('home',null)">Accueil</a><a href="#" onclick="showPage('projects',null)">Projets</a><a href="#" onclick="showPage('contact',null)">Contact</a></div>
+    <div class="foot-copy">© 2025 <em>NAMA NKOA GUERSHOM</em></div>
+  </footer>
+</div>
+
+<!-- ======= PROJECTS PAGE ======= -->
+<div class="page" id="page-projects">
+  <section class="section">
+    <div class="sec-label">Portfolio</div>
+    <h2 class="sec-title">Mes projets</h2>
+    <p class="sec-sub">Des solutions concrètes à des problèmes réels.</p>
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,rgba(124,58,237,.4),rgba(6,182,212,.3))">🛒<span class="proj-lbl">Full-Stack</span><div class="proj-status"><div class="status-dot" style="background:var(--green)"></div><span style="color:var(--green);font-size:11px;font-weight:600">En ligne</span></div></div>
+        <div class="proj-body">
+          <div class="proj-title">MarketPlace CM</div>
+          <div class="proj-desc">Plateforme e-commerce pour le marché camerounais avec paiement mobile money MTN & Orange intégré, gestion des vendeurs et tableau de bord analytics.</div>
+          <div class="proj-stack"><span class="p-badge">React</span><span class="p-badge">Node.js</span><span class="p-badge">MongoDB</span><span class="p-badge">Stripe</span></div>
+          <div class="proj-links"><a href="#" class="proj-link">Voir le projet →</a><a href="#" class="proj-link" style="color:var(--muted)">GitHub →</a></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,rgba(249,115,22,.4),rgba(236,72,153,.3))">📊<span class="proj-lbl">SaaS</span><div class="proj-status"><div class="status-dot" style="background:var(--green)"></div><span style="color:var(--green);font-size:11px;font-weight:600">En ligne</span></div></div>
+        <div class="proj-body">
+          <div class="proj-title">Dashboard Analytics</div>
+          <div class="proj-desc">Tableau de bord temps réel pour visualiser les KPIs d'entreprises avec exports PDF, alertes automatiques et rapports hebdomadaires.</div>
+          <div class="proj-stack"><span class="p-badge">Next.js</span><span class="p-badge">TypeScript</span><span class="p-badge">PostgreSQL</span><span class="p-badge">Chart.js</span></div>
+          <div class="proj-links"><a href="#" class="proj-link">Voir le projet →</a><a href="#" class="proj-link" style="color:var(--muted)">GitHub →</a></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,rgba(200,241,53,.2),rgba(6,182,212,.3))">🤖<span class="proj-lbl">IA</span><div class="proj-status"><div class="status-dot" style="background:var(--orange)"></div><span style="color:var(--orange);font-size:11px;font-weight:600">Beta</span></div></div>
+        <div class="proj-body">
+          <div class="proj-title">ChatBot Assistant</div>
+          <div class="proj-desc">Assistant conversationnel intelligent pour service client, intégré sur WhatsApp et site web. Traitement du langage naturel en français et anglais.</div>
+          <div class="proj-stack"><span class="p-badge">Python</span><span class="p-badge">FastAPI</span><span class="p-badge">Docker</span><span class="p-badge">NLP</span></div>
+          <div class="proj-links"><a href="#" class="proj-link">Voir le projet →</a><a href="#" class="proj-link" style="color:var(--muted)">GitHub →</a></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,rgba(236,72,153,.3),rgba(124,58,237,.4))">📱<span class="proj-lbl">Web App</span><div class="proj-status"><div class="status-dot" style="background:var(--green)"></div><span style="color:var(--green);font-size:11px;font-weight:600">En ligne</span></div></div>
+        <div class="proj-body">
+          <div class="proj-title">App Gestion RH</div>
+          <div class="proj-desc">Application responsive pour gérer les congés, pointages, fiches de paie et évaluations pour PMEs. Interface admin complète.</div>
+          <div class="proj-stack"><span class="p-badge">React</span><span class="p-badge">Express</span><span class="p-badge">MySQL</span><span class="p-badge">JWT</span></div>
+          <div class="proj-links"><a href="#" class="proj-link">Voir le projet →</a><a href="#" class="proj-link" style="color:var(--muted)">GitHub →</a></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,rgba(6,182,212,.3),rgba(200,241,53,.2))">🎓<span class="proj-lbl">EdTech</span><div class="proj-status"><div class="status-dot" style="background:var(--green)"></div><span style="color:var(--green);font-size:11px;font-weight:600">En ligne</span></div></div>
+        <div class="proj-body">
+          <div class="proj-title">Plateforme E-learning</div>
+          <div class="proj-desc">Plateforme de cours en ligne pour étudiants camerounais avec quiz interactifs, suivi de progression et certificats automatiques.</div>
+          <div class="proj-stack"><span class="p-badge">Next.js</span><span class="p-badge">Prisma</span><span class="p-badge">PostgreSQL</span><span class="p-badge">AWS S3</span></div>
+          <div class="proj-links"><a href="#" class="proj-link">Voir le projet →</a><a href="#" class="proj-link" style="color:var(--muted)">GitHub →</a></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,rgba(249,115,22,.3),rgba(239,68,68,.3))">🏥<span class="proj-lbl">SaaS</span><div class="proj-status"><div class="status-dot" style="background:var(--orange)"></div><span style="color:var(--orange);font-size:11px;font-weight:600">En développement</span></div></div>
+        <div class="proj-body">
+          <div class="proj-title">Gestion Clinique</div>
+          <div class="proj-desc">Système de gestion pour cliniques : prise de rendez-vous, dossiers patients, facturation et stock de médicaments.</div>
+          <div class="proj-stack"><span class="p-badge">React</span><span class="p-badge">Node.js</span><span class="p-badge">MongoDB</span><span class="p-badge">PDF</span></div>
+          <div class="proj-links"><a href="#" class="proj-link" style="color:var(--muted)">Bientôt disponible</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><div class="foot-logo">G<em>.</em>dev</div><div class="foot-links"><a href="#" onclick="showPage('home',null)">Accueil</a><a href="#" onclick="showPage('blog',null)">Blog</a><a href="#" onclick="showPage('contact',null)">Contact</a></div><div class="foot-copy">© 2025 <em>NAMA NKOA GUERSHOM</em></div></footer>
+</div>
+
+<!-- ======= BLOG PAGE ======= -->
+<div class="page" id="page-blog">
+  <section class="section">
+    <div class="sec-label">Blog</div>
+    <h2 class="sec-title">Articles & réflexions</h2>
+    <p class="sec-sub">Je partage ce que j'apprends, ce que j'expérimente et ce qui m'inspire.</p>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(124,58,237,.35),rgba(6,182,212,.25))">🚀<div class="blog-cat" style="background:rgba(124,58,237,.2);color:#c4b5fd;border:1px solid rgba(124,58,237,.3)">Performance</div></div>
+        <div class="blog-body">
+          <div class="blog-title">Optimiser une app React : les 10 techniques que j'utilise vraiment</div>
+          <div class="blog-excerpt">memo, useMemo, lazy loading, virtualisation… Voici ce qui fait réellement la différence en production.</div>
+          <div class="blog-meta"><span>📅 12 Jan 2025</span><span>⏱ 8 min</span><span>👁 1.2k vues</span></div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(249,115,22,.35),rgba(239,68,68,.25))">🏗️<div class="blog-cat" style="background:rgba(249,115,22,.2);color:#fdba74;border:1px solid rgba(249,115,22,.3)">Architecture</div></div>
+        <div class="blog-body">
+          <div class="blog-title">Comment j'architecture mes APIs Node.js pour qu'elles durent</div>
+          <div class="blog-excerpt">Controllers, services, repositories… Une structure qui a survécu à 3 ans de projets et plusieurs équipes.</div>
+          <div class="blog-meta"><span>📅 5 Jan 2025</span><span>⏱ 12 min</span><span>👁 876 vues</span></div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(200,241,53,.2),rgba(34,197,94,.25))">🌍<div class="blog-cat" style="background:rgba(200,241,53,.15);color:var(--lime);border:1px solid rgba(200,241,53,.25)">Afrique Tech</div></div>
+        <div class="blog-body">
+          <div class="blog-title">Développer au Cameroun en 2025 : défis, opportunités et réalités</div>
+          <div class="blog-excerpt">Connexion instable, clients locaux, salaires en XAF… Comment je navigue dans l'écosystème tech africain.</div>
+          <div class="blog-meta"><span>📅 28 Déc 2024</span><span>⏱ 6 min</span><span>👁 2.1k vues</span></div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(6,182,212,.3),rgba(124,58,237,.2))">🐳<div class="blog-cat" style="background:rgba(6,182,212,.15);color:#67e8f9;border:1px solid rgba(6,182,212,.25)">DevOps</div></div>
+        <div class="blog-body">
+          <div class="blog-title">Docker pour les développeurs solo : mon setup qui tourne en prod</div>
+          <div class="blog-excerpt">Compose, volumes, networks… Comment j'utilise Docker au quotidien sans être DevOps à temps plein.</div>
+          <div class="blog-meta"><span>📅 15 Déc 2024</span><span>⏱ 10 min</span><span>👁 654 vues</span></div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(236,72,153,.3),rgba(249,115,22,.2))">💰<div class="blog-cat" style="background:rgba(236,72,153,.15);color:#f9a8d4;border:1px solid rgba(236,72,153,.25)">Freelance</div></div>
+        <div class="blog-body">
+          <div class="blog-title">Comment je fixe mes tarifs en freelance : méthode et calcul</div>
+          <div class="blog-excerpt">TJM, forfait ou régie ? Comment valoriser son travail sans se brader ni faire fuir les clients.</div>
+          <div class="blog-meta"><span>📅 2 Déc 2024</span><span>⏱ 7 min</span><span>👁 3.4k vues</span></div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(34,197,94,.2),rgba(6,182,212,.25))">🧪<div class="blog-cat" style="background:rgba(34,197,94,.15);color:#86efac;border:1px solid rgba(34,197,94,.25)">Testing</div></div>
+        <div class="blog-body">
+          <div class="blog-title">Tester son code sans en faire une religion : guide pratique</div>
+          <div class="blog-excerpt">Jest, Vitest, Playwright… Comment j'écris des tests utiles sans y passer 50% de mon temps.</div>
+          <div class="blog-meta"><span>📅 18 Nov 2024</span><span>⏱ 9 min</span><span>👁 543 vues</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><div class="foot-logo">G<em>.</em>dev</div><div class="foot-links"><a href="#" onclick="showPage('home',null)">Accueil</a><a href="#" onclick="showPage('projects',null)">Projets</a><a href="#" onclick="showPage('contact',null)">Contact</a></div><div class="foot-copy">© 2025 <em>NAMA NKOA GUERSHOM</em></div></footer>
+</div>
+
+<!-- ======= TESTIMONIALS PAGE ======= -->
+<div class="page" id="page-testimonials">
+  <section class="section testi-bg">
+    <div class="sec-label">Témoignages</div>
+    <h2 class="sec-title">Ce que disent mes clients</h2>
+    <p class="sec-sub">Des retours authentiques de personnes avec qui j'ai travaillé.</p>
+    <div class="testi-grid" id="testi-list"></div>
+    <!-- ADD testimonial form -->
+    <div class="testi-form-wrap mt-24 reveal">
+      <div class="testi-form-title">✍️ Laisser un témoignage</div>
+      <div class="form-row">
+        <div class="form-group"><label>Votre nom</label><input class="form-input" id="ti-name" placeholder="Marie Dupont"></div>
+        <div class="form-group"><label>Votre rôle</label><input class="form-input" id="ti-role" placeholder="CEO, Startup Tech"></div>
+      </div>
+      <div class="form-group"><label>Votre message</label><textarea class="form-input" id="ti-msg" placeholder="Guershom a livré un travail exceptionnel..."></textarea></div>
+      <div class="form-group">
+        <label>Note</label>
+        <div class="star-select" id="star-select">
+          <button class="star-btn on" data-v="1">★</button>
+          <button class="star-btn on" data-v="2">★</button>
+          <button class="star-btn on" data-v="3">★</button>
+          <button class="star-btn on" data-v="4">★</button>
+          <button class="star-btn on" data-v="5">★</button>
+        </div>
+      </div>
+      <button class="btn-l" onclick="addTestimonial()" style="margin-top:8px">Publier mon témoignage →</button>
+    </div>
+  </section>
+  <footer><div class="foot-logo">G<em>.</em>dev</div><div class="foot-links"><a href="#" onclick="showPage('home',null)">Accueil</a><a href="#" onclick="showPage('projects',null)">Projets</a><a href="#" onclick="showPage('contact',null)">Contact</a></div><div class="foot-copy">© 2025 <em>NAMA NKOA GUERSHOM</em></div></footer>
+</div>
+
+<!-- ======= VISITORS PAGE ======= -->
+<div class="page" id="page-visitors">
+  <section class="section visitor-bg">
+    <div class="sec-label">Espace visiteurs</div>
+    <h2 class="sec-title">Qui est en ligne ?</h2>
+    <p class="sec-sub">Inscris-toi, laisse un message, parle avec moi en direct.</p>
+    <div class="vstat-grid reveal">
+      <div class="vstat"><div class="vstat-n" id="v-online">5</div><div class="vstat-l">En ligne</div></div>
+      <div class="vstat"><div class="vstat-n">248</div><div class="vstat-l">Visiteurs total</div></div>
+      <div class="vstat"><div class="vstat-n">31</div><div class="vstat-l">Messages reçus</div></div>
+    </div>
+    <div class="visitor-grid">
+      <div class="vcard reveal">
+        <div class="vcard-title"><span class="vcard-ico">🟢</span>Visiteurs en ligne</div>
+        <div class="visitors-list" id="visitors-list"></div>
+      </div>
+      <div>
+        <div class="vcard reveal" style="margin-bottom:20px">
+          <div class="vcard-title"><span class="vcard-ico">👋</span>Rejoindre l'espace</div>
+          <div class="reg-form">
+            <div class="form-group"><label>Votre pseudo</label><input class="form-input" id="reg-name" placeholder="Ex: Jean237"></div>
+            <div class="form-group"><label>Pays / Ville</label><input class="form-input" id="reg-loc" placeholder="Ex: Yaoundé, Cameroun"></div>
+            <button class="btn-l" onclick="registerVisitor()" style="width:100%">S'enregistrer →</button>
+            <div class="reg-note">En vous enregistrant, vous pouvez me parler en direct via le chat et interagir avec d'autres visiteurs.</div>
+          </div>
+        </div>
+        <div class="vcard reveal">
+          <div class="vcard-title"><span class="vcard-ico">📝</span>Livre d'or</div>
+          <div class="guestbook" id="guestbook"></div>
+          <div class="gb-form">
+            <input placeholder="Laisse un mot..." id="gb-input">
+            <button class="gb-send" onclick="addGuestbook()">Envoyer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><div class="foot-logo">G<em>.</em>dev</div><div class="foot-links"><a href="#" onclick="showPage('home',null)">Accueil</a><a href="#" onclick="showPage('chat',null)">Chat</a><a href="#" onclick="showPage('contact',null)">Contact</a></div><div class="foot-copy">© 2025 <em>NAMA NKOA GUERSHOM</em></div></footer>
+</div>
+
+<!-- ======= CHAT PAGE ======= -->
+<div class="page" id="page-chat">
+  <section class="section chat-bg" style="padding-top:80px">
+    <div class="sec-label">Messagerie</div>
+    <h2 class="sec-title" style="margin-bottom:32px">Chat en direct</h2>
+    <div class="chat-wrap">
+      <!-- sidebar -->
+      <div class="chat-sidebar">
+        <div class="chat-sidebar-head">
+          <div class="chat-sidebar-title">Messages</div>
+          <div class="chat-online">3 en ligne</div>
+        </div>
+        <div class="chat-list" id="chat-list"></div>
+      </div>
+      <!-- main -->
+      <div class="chat-main">
+        <div class="chat-head">
+          <div class="chat-head-av" id="ch-av" style="background:rgba(124,58,237,.25);color:#a78bfa">MF</div>
+          <div>
+            <div class="chat-head-name" id="ch-name">Marie Fotso</div>
+            <div class="chat-head-status">● En ligne maintenant</div>
+          </div>
+          <div class="chat-head-actions">
+            <button class="chat-action-btn" title="Appel">📞</button>
+            <button class="chat-action-btn" title="Info">ℹ️</button>
+          </div>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input-bar">
+          <button class="emoji-btn">😊</button>
+          <input class="chat-input" id="chat-input" placeholder="Écrire un message..." onkeydown="if(event.key==='Enter')sendMsg()">
+          <button class="chat-send" onclick="sendMsg()">➤</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><div class="foot-logo">G<em>.</em>dev</div><div class="foot-links"><a href="#" onclick="showPage('home',null)">Accueil</a><a href="#" onclick="showPage('visitors',null)">Visiteurs</a><a href="#" onclick="showPage('contact',null)">Contact</a></div><div class="foot-copy">© 2025 <em>NAMA NKOA GUERSHOM</em></div></footer>
+</div>
+
+<!-- ======= CONTACT PAGE ======= -->
+<div class="page" id="page-contact">
+  <section class="section">
+    <div class="sec-label">Contact</div>
+    <div class="contact-split">
+      <div class="contact-info">
+        <h2 class="sec-title">Travaillons<br>ensemble</h2>
+        <p>Un projet en tête ? Une idée à explorer ? Je réponds à tous mes messages sous 24h et je serai ravi d'en discuter.</p>
+        <div class="contact-links">
+          <div class="c-link reveal"><span class="c-link-ico">📧</span><div><div class="c-link-label">Email</div><div class="c-link-val">namankoaguershom@gmail.com</div></div></div>
+          <div class="c-link reveal"><span class="c-link-ico">📍</span><div><div class="c-link-label">Localisation</div><div class="c-link-val">Yaoundé, Cameroun 🇨🇲</div></div></div>
+          <div class="c-link reveal"><span class="c-link-ico">💼</span><div><div class="c-link-label">LinkedIn</div><div class="c-link-val">linkedin.com/in/nama-nkoa-guershom</div></div></div>
+          <div class="c-link reveal"><span class="c-link-ico">🐙</span><div><div class="c-link-label">GitHub</div><div class="c-link-val">github.com/gerom-guershom</div></div></div>
+          <div class="c-link reveal" style="cursor:pointer;border-color:rgba(37,211,102,.2)" onclick="openWhatsApp()"><span class="c-link-ico">💬</span><div><div class="c-link-label">WhatsApp Business</div><div class="c-link-val" style="color:#25D366">Me contacter sur WhatsApp →</div></div></div>
+          <div class="c-link reveal" style="cursor:pointer;border-color:rgba(200,241,53,.2)" onclick="showToast('📄 CV téléchargé !')"><span class="c-link-ico">📄</span><div><div class="c-link-label">Curriculum Vitae</div><div class="c-link-val text-lime">Télécharger mon CV →</div></div></div>
+        </div>
+      </div>
+      <div class="contact-form-card reveal">
+        <div class="contact-form-title">Envoyer un message</div>
+        <div class="contact-form-sub">Je réponds sous 24h — souvent bien avant 🚀</div>
+        <div class="form-row">
+          <div class="form-group"><label>Prénom</label><input class="form-input" id="cf-name" placeholder="Jean"></div>
+          <div class="form-group"><label>Email</label><input class="form-input" id="cf-email" placeholder="jean@email.com"></div>
+        </div>
+        <div class="form-group"><label>Sujet</label>
+          <select class="form-input" id="cf-subject">
+            <option value="">Choisir un sujet…</option>
+            <option>Projet web / application</option>
+            <option>Site vitrine</option>
+            <option>Conseil / consultation</option>
+            <option>Collaboration</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea class="form-input" id="cf-msg" rows="5" placeholder="Bonjour Guershom, j'ai un projet…"></textarea></div>
+        <button class="btn-l" onclick="sendContact()" style="width:100%;justify-content:center">Envoyer le message ✉️</button>
+        <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:12px">🔒 Tes données ne sont jamais partagées</p>
+      </div>
+    </div>
+  </section>
+  <footer><div class="foot-logo">G<em>.</em>dev</div><div class="foot-links"><a href="#" onclick="showPage('home',null)">Accueil</a><a href="#" onclick="showPage('projects',null)">Projets</a><a href="#" onclick="showPage('blog',null)">Blog</a></div><div class="foot-copy">© 2025 <em>NAMA NKOA GUERSHOM</em></div></footer>
+</div>
+
+<script>
+// ===== CURSOR =====
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function animCur(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(animCur)})();
+
+// ===== NAV =====
+function showPage(id, btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  window.scrollTo(0,0);
+  initReveal();
+  if(id==='chat') initChat();
+  if(id==='visitors') initVisitors();
+  if(id==='testimonials'){renderTestimonials('testi-list');initReveal();}
+}
+document.getElementById('ham').onclick=()=>document.getElementById('mobMenu').classList.add('open');
+document.getElementById('mobClose').onclick=()=>document.getElementById('mobMenu').classList.remove('open');
+function closeMob(){document.getElementById('mobMenu').classList.remove('open')}
+
+// ===== SCROLL REVEAL =====
+function initReveal(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis')}})},{threshold:0.08});
+  document.querySelectorAll('.reveal:not(.vis)').forEach(el=>obs.observe(el));
+}
+initReveal();
+
+// ===== TOAST =====
+let toastTimer;
+function showToast(msg,dur=3000){
+  const t=document.getElementById('toast');
+  document.getElementById('toast-msg').textContent=msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),dur);
+}
+function hideToast(){document.getElementById('toast').classList.remove('show')}
+
+// ===== TESTIMONIALS DATA =====
+const testimonials=[
+  {name:'Kouassi André',role:'Directeur, Société Importation',msg:'Guershom a transformé notre idée en une application réelle en un temps record. Qualité du code, communication, délais — tout était parfait. Je le recommande sans hésiter !',stars:5,color:'rgba(124,58,237,.2)',tc:'#a78bfa',init:'KA'},
+  {name:'Marie Fotso',role:'CEO, TechCam Solutions',msg:'Excellent développeur, très professionnel et à l\'écoute. Il a su proposer des solutions auxquelles on n\'avait pas pensé. Le résultat dépasse nos attentes.',stars:5,color:'rgba(6,182,212,.2)',tc:'#67e8f9',init:'MF'},
+  {name:'Paul Nkemdirim',role:'Product Manager, Fintech Lagos',msg:'J\'ai collaboré avec Guershom sur une API complexe. Sa maîtrise de Node.js et PostgreSQL est impressionnante. Livré à temps, bien documenté.',stars:5,color:'rgba(249,115,22,.2)',tc:'#fdba74',init:'PN'},
+  {name:'Aminata Diallo',role:'Fondatrice, EdTech Sénégal',msg:'Notre plateforme e-learning fonctionne parfaitement depuis le lancement. Guershom a géré toute la partie technique avec expertise et pédagogie.',stars:5,color:'rgba(236,72,153,.2)',tc:'#f9a8d4',init:'AD'},
+  {name:'Jean-Baptiste Mvondo',role:'Entrepreneur, Yaoundé',msg:'Site e-commerce livré en 3 semaines, avec le paiement mobile money intégré. Exactement ce dont j\'avais besoin. Très satisfait !',stars:4,color:'rgba(34,197,94,.2)',tc:'#86efac',init:'JB'},
+  {name:'Sandra Talla',role:'DRH, Entreprise Locale',msg:'L\'application RH qu\'il a développée nous fait gagner des heures chaque semaine. Interface simple, tout fonctionne. Merci Guershom !',stars:5,color:'rgba(200,241,53,.15)',tc:'var(--lime)',init:'ST'},
+];
+function renderTestimonials(containerId){
+  const container=document.getElementById(containerId);
+  if(!container)return;
+  container.innerHTML=testimonials.map(t=>`
+    <div class="testi-card reveal">
+      <div class="testi-stars">${'★'.repeat(t.stars)+'☆'.repeat(5-t.stars)}</div>
+      <div class="testi-text">"${t.msg}"</div>
+      <div class="testi-author">
+        <div class="testi-av" style="background:${t.color};color:${t.tc}">${t.init}</div>
+        <div><div class="testi-name">${t.name}</div><div class="testi-role">${t.role}</div></div>
+      </div>
+    </div>`).join('');
+  initReveal();
+}
+renderTestimonials('home-testi');
+// star select
+let selStars=5;
+document.getElementById('star-select')?.querySelectorAll('.star-btn').forEach(btn=>{
+  btn.onclick=()=>{selStars=+btn.dataset.v;document.querySelectorAll('.star-btn').forEach(b=>b.classList.toggle('on',+b.dataset.v<=selStars))};
+});
+function addTestimonial(){
+  const name=document.getElementById('ti-name')?.value.trim();
+  const role=document.getElementById('ti-role')?.value.trim();
+  const msg=document.getElementById('ti-msg')?.value.trim();
+  if(!name||!msg){showToast('⚠️ Remplis au moins ton nom et ton message');return;}
+  const colors=['rgba(124,58,237,.2)','rgba(6,182,212,.2)','rgba(249,115,22,.2)','rgba(236,72,153,.2)','rgba(34,197,94,.2)'];
+  const tcs=['#a78bfa','#67e8f9','#fdba74','#f9a8d4','#86efac'];
+  const i=Math.floor(Math.random()*5);
+  testimonials.unshift({name,role:role||'Visiteur',msg,stars:selStars,color:colors[i],tc:tcs[i],init:name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2)});
+  renderTestimonials('testi-list');
+  renderTestimonials('home-testi');
+  document.getElementById('ti-name').value='';
+  document.getElementById('ti-role').value='';
+  document.getElementById('ti-msg').value='';
+  showToast('🎉 Témoignage publié ! Merci beaucoup.');
+}
+
+// ===== VISITORS =====
+const visitorsData=[
+  {name:'Jean237',loc:'Yaoundé 🇨🇲',status:'online',color:'rgba(124,58,237,.2)',tc:'#a78bfa',init:'J2'},
+  {name:'MarieFotso',loc:'Douala 🇨🇲',status:'online',color:'rgba(6,182,212,.2)',tc:'#67e8f9',init:'MF'},
+  {name:'TechLagos',loc:'Lagos 🇳🇬',status:'online',color:'rgba(249,115,22,.2)',tc:'#fdba74',init:'TL'},
+  {name:'Sarah_Dev',loc:'Abidjan 🇨🇮',status:'away',color:'rgba(200,241,53,.15)',tc:'var(--lime)',init:'SD'},
+  {name:'PaulNkemdi',loc:'Accra 🇬🇭',status:'online',color:'rgba(34,197,94,.2)',tc:'#86efac',init:'PN'},
+];
+const guestbookData=[
+  {name:'Jean237',msg:'Super portfolio ! Tu maîtrises vraiment ton sujet 🔥',time:'il y a 5 min',color:'rgba(124,58,237,.2)',tc:'#a78bfa',init:'J2'},
+  {name:'TechLagos',msg:'Found your blog post on React performance, very insightful!',time:'il y a 12 min',color:'rgba(249,115,22,.2)',tc:'#fdba74',init:'TL'},
+  {name:'Sarah_Dev',msg:'On cherche un développeur pour un projet EdTech, tu es dispo ?',time:'il y a 1h',color:'rgba(200,241,53,.15)',tc:'var(--lime)',init:'SD'},
+];
+function initVisitors(){
+  const vl=document.getElementById('visitors-list');
+  if(vl) vl.innerHTML=visitorsData.map(v=>`
+    <div class="visitor-item">
+      <div class="v-av" style="background:${v.color};color:${v.tc}">${v.init}</div>
+      <div class="v-info">
+        <div class="v-name">${v.name}</div>
+        <div class="v-loc">📍 ${v.loc}</div>
+      </div>
+      <div class="v-status"><div class="v-dot" style="background:${v.status==='online'?'var(--green)':'var(--orange)'}"></div><span style="color:${v.status==='online'?'var(--green)':'var(--orange)'}">${v.status==='online'?'En ligne':'Absent'}</span></div>
+      <button class="v-btn" onclick="chatWith('${v.name}')">Chat</button>
+    </div>`).join('');
+  renderGuestbook();
+  document.getElementById('v-online').textContent=visitorsData.filter(v=>v.status==='online').length;
+}
+function renderGuestbook(){
+  const gb=document.getElementById('guestbook');
+  if(!gb)return;
+  gb.innerHTML=guestbookData.map(g=>`
+    <div class="gb-item">
+      <div class="gb-top">
+        <div class="gb-av" style="background:${g.color};color:${g.tc}">${g.init}</div>
+        <div class="gb-name">${g.name}</div>
+        <div class="gb-time">${g.time}</div>
+      </div>
+      <div class="gb-msg">${g.msg}</div>
+    </div>`).join('');
+}
+function addGuestbook(){
+  const input=document.getElementById('gb-input');
+  const msg=input.value.trim();
+  if(!msg)return;
+  guestbookData.unshift({name:'Vous',msg,time:'À l\'instant',color:'rgba(200,241,53,.15)',tc:'var(--lime)',init:'👤'});
+  renderGuestbook();
+  input.value='';
+  showToast('📝 Message ajouté au livre d\'or !');
+}
+function registerVisitor(){
+  const name=document.getElementById('reg-name')?.value.trim();
+  const loc=document.getElementById('reg-loc')?.value.trim();
+  if(!name){showToast('⚠️ Entre ton pseudo');return;}
+  visitorsData.unshift({name,loc:loc||'Monde 🌍',status:'online',color:'rgba(200,241,53,.15)',tc:'var(--lime)',init:name.slice(0,2).toUpperCase()});
+  initVisitors();
+  document.getElementById('reg-name').value='';
+  document.getElementById('reg-loc').value='';
+  showToast('🎉 Bienvenue '+name+' ! Tu es maintenant visible.');
+}
+function chatWith(name){
+  showPage('chat',null);
+  // auto-select conversation
+  setTimeout(()=>{
+    const items=document.querySelectorAll('.chat-item');
+    items.forEach(i=>{if(i.dataset.name===name){i.click();}});
+  },100);
+}
+
+// ===== CHAT =====
+const chatsData=[
+  {name:'Marie Fotso',init:'MF',color:'rgba(124,58,237,.25)',tc:'#a78bfa',status:'online',msgs:[
+    {mine:false,text:'Bonjour Guershom ! J\'ai vu votre portfolio, très impressionnant 👏',time:'10:32'},
+    {mine:true,text:'Merci beaucoup Marie ! Qu\'est-ce que je peux faire pour vous ?',time:'10:34'},
+    {mine:false,text:'Je cherche un développeur pour une app mobile. Vous avez de l\'expérience avec React Native ?',time:'10:35'},
+    {mine:true,text:'Oui, j\'ai fait plusieurs projets avec React Native. C\'est pour quel type d\'application ?',time:'10:36'},
+  ],unread:0},
+  {name:'Kouassi André',init:'KA',color:'rgba(249,115,22,.25)',tc:'#fdba74',status:'online',msgs:[
+    {mine:false,text:'Salut ! Le projet e-commerce avance bien ?',time:'09:15'},
+    {mine:true,text:'Oui ! La page produits est terminée. Je t\'envoie un lien de démo aujourd\'hui.',time:'09:20'},
+    {mine:false,text:'Super, j\'attends ça 🔥',time:'09:21'},
+  ],unread:1},
+  {name:'TechLagos',init:'TL',color:'rgba(6,182,212,.25)',tc:'#67e8f9',status:'online',msgs:[
+    {mine:false,text:'Hello! Saw your blog post on React performance. Really helpful!',time:'Yesterday'},
+    {mine:false,text:'Do you do remote work? We have an opening.',time:'Yesterday'},
+  ],unread:1},
+  {name:'Sarah_Dev',init:'SD',color:'rgba(200,241,53,.15)',tc:'var(--lime)',status:'away',msgs:[
+    {mine:false,text:'Bonjour, je travaille sur un projet EdTech et j\'aurais besoin d\'un coup de main.',time:'Mardi'},
+  ],unread:0},
+];
+let activeChat=0;
+function initChat(){
+  const list=document.getElementById('chat-list');
+  if(!list||list.innerHTML!=='')return;
+  list.innerHTML=chatsData.map((c,i)=>`
+    <div class="chat-item${i===0?' active':''}" data-idx="${i}" data-name="${c.name}" onclick="selectChat(${i})">
+      <div class="chat-av" style="background:${c.color};color:${c.tc}">${c.init}<${c.status==='online'?'div class="online-ind"></div>':'/div>'}</div>
+      <div>
+        <div class="ci-name">${c.name}</div>
+        <div class="ci-preview">${c.msgs[c.msgs.length-1].text}</div>
+      </div>
+      <div class="ci-time">${c.msgs[c.msgs.length-1].time}</div>
+      ${c.unread>0?`<div class="ci-unread">${c.unread}</div>`:''}
+    </div>`).join('');
+  renderMessages(0);
+}
+function selectChat(idx){
+  activeChat=idx;
+  chatsData[idx].unread=0;
+  document.querySelectorAll('.chat-item').forEach((el,i)=>el.classList.toggle('active',i===idx));
+  const c=chatsData[idx];
+  document.getElementById('ch-av').style.background=c.color;
+  document.getElementById('ch-av').style.color=c.tc;
+  document.getElementById('ch-av').textContent=c.init;
+  document.getElementById('ch-name').textContent=c.name;
+  renderMessages(idx);
+  // remove unread badge
+  const items=document.querySelectorAll('.chat-item');
+  const badge=items[idx]?.querySelector('.ci-unread');
+  if(badge)badge.remove();
+}
+function renderMessages(idx){
+  const msgs=document.getElementById('chat-messages');
+  const c=chatsData[idx];
+  msgs.innerHTML=c.msgs.map(m=>`
+    <div class="msg ${m.mine?'mine':'theirs'}">
+      ${!m.mine?`<div class="msg-av" style="background:${c.color};color:${c.tc}">${c.init}</div>`:''}
+      <div class="msg-body">
+        <div class="msg-bubble">${m.text}</div>
+        <div class="msg-time">${m.time}</div>
+      </div>
+    </div>`).join('');
+  msgs.scrollTop=msgs.scrollHeight;
+}
+function sendMsg(){
+  const input=document.getElementById('chat-input');
+  const text=input.value.trim();
+  if(!text)return;
+  const now=new Date();
+  const time=now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');
+  chatsData[activeChat].msgs.push({mine:true,text,time});
+  input.value='';
+  renderMessages(activeChat);
+  // auto reply
+  const replies=['Merci pour le message ! Je regarde ça 👀','Intéressant ! On peut en discuter plus ?','Super, je vous reviens sous peu 🙏','Vu ! Je vous réponds dès que possible.','Parfait ! À tout de suite 🚀'];
+  const typingEl=document.createElement('div');
+  typingEl.className='typing';
+  typingEl.innerHTML='<span></span><span></span><span></span>';
+  document.getElementById('chat-messages').appendChild(typingEl);
+  document.getElementById('chat-messages').scrollTop=99999;
+  setTimeout(()=>{
+    typingEl.remove();
+    const reply=replies[Math.floor(Math.random()*replies.length)];
+    chatsData[activeChat].msgs.push({mine:false,text:reply,time});
+    renderMessages(activeChat);
+  },1800);
+}
+
+// ===== CONTACT FORM =====
+function sendContact(){
+  const name = document.getElementById('cf-name')?.value.trim();
+  const email = document.getElementById('cf-email')?.value.trim();
+  const subject = document.getElementById('cf-subject')?.value;
+  const msg = document.getElementById('cf-msg')?.value.trim();
+
+  if(!name || !email || !msg){
+    showToast('⚠️ Remplis tous les champs obligatoires');
+    return;
+  }
+
+  // Disable button
+  const btn = document.querySelector('#page-contact .btn-l');
+  const origText = btn.textContent;
+  btn.textContent = '⏳ Envoi en cours...';
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
+
+  const templateParams = {
+    from_name: name,
+    from_email: email,
+    subject: subject || 'Message depuis le portfolio',
+    message: msg,
+    to_name: 'NAMA NKOA GUERSHOM',
+    reply_to: email,
+  };
+
+  emailjs.send('service_mw306dm', 'template_x1r6f7b', templateParams)
+    .then(() => {
+      showToast('✅ Message envoyé ! Je te réponds sous 24h. 🙏');
+      document.getElementById('cf-name').value = '';
+      document.getElementById('cf-email').value = '';
+      document.getElementById('cf-msg').value = '';
+      document.getElementById('cf-subject').value = '';
+      btn.textContent = '✅ Message envoyé !';
+      btn.style.background = 'var(--green)';
+      setTimeout(() => {
+        btn.textContent = origText;
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.style.background = '';
+      }, 4000);
+    })
+    .catch((err) => {
+      console.error('EmailJS error:', err);
+      showToast('❌ Erreur envoi. Reessaie ou contacte-moi directement.');
+      btn.textContent = origText;
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    });
+}
+
+// ===== WHATSAPP =====
+function openWhatsApp(){
+  const msg = encodeURIComponent("Bonjour NAMA NKOA GUERSHOM, j'ai vu votre portfolio et je voudrais vous contacter.");
+  window.open('https://wa.me/237682091580?text=' + msg, '_blank');
+}
+
+// ===== INIT CHAT badge =====
+setTimeout(()=>document.getElementById('chat-badge').style.display='inline-flex',1000);
+</script>
+</body>
+</html>
