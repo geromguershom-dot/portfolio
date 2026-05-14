@@ -17,6 +17,35 @@
   --card:#141414;--border:rgba(255,255,255,0.08);
   --r:14px;--r2:20px;
 }
+/* LIGHT MODE */
+body.light{
+  --ink:#f8f8f8;--ink2:#f0f0f0;--ink3:#e8e8e8;
+  --white:#0d0d0d;--muted:#555;--muted2:#777;
+  --card:#ffffff;--border:rgba(0,0,0,0.09);
+}
+body.light nav{background:rgba(248,248,248,.9);}
+body.light .hero-grid-bg{background-image:linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px);background-size:64px 64px;}
+body.light .marquee-wrap{background:#efefef;}
+body.light .sk-card,body.light .proj-card,body.light .blog-card,body.light .testi-card,body.light .vcard,body.light .chat-wrap,body.light .contact-form-card,body.light .testi-form-wrap{background:#fff;border-color:rgba(0,0,0,.1);}
+body.light .chat-sidebar{border-right-color:rgba(0,0,0,.1);}
+body.light .chat-messages{background:#f8f8f8;}
+body.light .msg.theirs .msg-bubble{background:#e8e8e8;border-color:rgba(0,0,0,.1);color:#111;}
+body.light .chat-input{background:#f0f0f0;border-color:rgba(0,0,0,.1);color:#111;}
+body.light .chat-input-bar{border-top-color:rgba(0,0,0,.1);}
+body.light .chat-sidebar-head{border-bottom-color:rgba(0,0,0,.1);}
+body.light .form-input{background:#f5f5f5;border-color:rgba(0,0,0,.12);color:#111;}
+body.light .mob-menu{background:rgba(248,248,248,.97);}
+body.light .mob-menu a{color:#111;}
+body.light footer{border-top-color:rgba(0,0,0,.1);}
+body.light .c-link{background:#fff;border-color:rgba(0,0,0,.1);}
+body.light .hero-bg{opacity:.5;}
+body.light .val-card{background:#fff;}
+body.light .f-card,.f-stat-card{background:#fff;}
+body.light .about-blob{background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(200,241,53,.1));}
+body.light .gb-item{background:#f5f5f5;border-color:rgba(0,0,0,.08);}
+body.light .visitor-item:hover{background:rgba(0,0,0,.03);}
+body.light .chat-item:hover{background:rgba(0,0,0,.04);}
+body.light .chat-item.active{background:rgba(200,241,53,.12);}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--white);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
@@ -381,6 +410,7 @@ footer{padding:40px;border-top:1px solid var(--border);display:grid;grid-templat
   </div>
   <div class="nav-right">
     <button class="notif-btn" onclick="showPage('chat',document.querySelector('.nav-btn:nth-child(6)'))">💬<span class="notif-dot"></span></button>
+    <button class="notif-btn" id="theme-toggle" onclick="toggleTheme()" title="Changer le thème" style="font-size:18px;border:1px solid var(--border)">🌙</button>
     <button class="nav-cta" onclick="showPage('contact',null)">Contact</button>
     <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
   </div>
@@ -1165,6 +1195,25 @@ function sendContact(){
       btn.style.opacity = '1';
     });
 }
+
+// ===== THEME TOGGLE =====
+function toggleTheme(){
+  const body = document.body;
+  const btn = document.getElementById('theme-toggle');
+  body.classList.toggle('light');
+  const isLight = body.classList.contains('light');
+  btn.textContent = isLight ? '☀️' : '🌙';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+}
+// Load saved theme
+(function(){
+  const saved = localStorage.getItem('theme');
+  if(saved === 'light'){
+    document.body.classList.add('light');
+    const btn = document.getElementById('theme-toggle');
+    if(btn) btn.textContent = '☀️';
+  }
+})();
 
 // ===== WHATSAPP =====
 function openWhatsApp(){
