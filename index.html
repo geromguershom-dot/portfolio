@@ -373,6 +373,7 @@ footer{padding:40px;border-top:1px solid var(--border);display:grid;grid-templat
     <button class="nav-btn" onclick="showPage('about',this)">À propos</button>
     <button class="nav-btn" onclick="showPage('projects',this)">Projets</button>
     <button class="nav-btn" onclick="showPage('blog',this)">Blog</button>
+    <button class="nav-btn" onclick="showPage('services',this)">Services</button>
     <button class="nav-btn" onclick="showPage('visitors',this)">Visiteurs</button>
     <button class="nav-btn" onclick="showPage('chat',this)">
       💬 Chat <span id="chat-badge" style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;background:var(--red);border-radius:50%;font-size:9px;font-weight:700;color:white;margin-left:4px">2</span>
@@ -392,6 +393,7 @@ footer{padding:40px;border-top:1px solid var(--border);display:grid;grid-templat
   <a href="#" onclick="showPage('about',null);closeMob()">À propos</a>
   <a href="#" onclick="showPage('projects',null);closeMob()">Projets</a>
   <a href="#" onclick="showPage('blog',null);closeMob()">Blog</a>
+  <a href="#" onclick="showPage('services',null);closeMob()">Services</a>
   <a href="#" onclick="showPage('visitors',null);closeMob()">Visiteurs</a>
   <a href="#" onclick="showPage('chat',null);closeMob()">💬 Chat</a>
   <a href="#" onclick="showPage('contact',null);closeMob()">Contact</a>
@@ -1172,5 +1174,148 @@ function openWhatsApp(){
 // ===== INIT CHAT badge =====
 setTimeout(()=>document.getElementById('chat-badge').style.display='inline-flex',1000);
 </script>
+
+<!-- ======= SERVICES PAGE ======= -->
+<div class="page" id="page-services">
+  <section class="section">
+    <div class="sec-label">Services</div>
+    <h2 class="sec-title">Ce que je peux faire<br>pour vous</h2>
+    <p class="sec-sub">Des solutions digitales sur mesure, livrées dans les délais, avec un suivi professionnel.</p>
+
+    <!-- SERVICES GRID -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;margin-bottom:64px">
+
+      <!-- Service 1 -->
+      <div class="sk-card reveal" style="padding:32px">
+        <div class="sk-top" style="background:var(--lime)"></div>
+        <div style="font-size:36px;margin-bottom:20px">🌐</div>
+        <div class="sk-name" style="font-size:20px;margin-bottom:10px">Site Vitrine Simple</div>
+        <div class="sk-desc" style="margin-bottom:20px">Un site professionnel pour présenter votre activité, attirer des clients et renforcer votre crédibilité en ligne.</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--lime)">✓</span> Design moderne & responsive</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--lime)">✓</span> Jusqu'à 5 pages</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--lime)">✓</span> Formulaire de contact</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--lime)">✓</span> Déploiement inclus</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--lime)">✓</span> Livraison : 1 semaine</li>
+        </ul>
+        <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:20px">
+          <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--lime)">Sur devis</div>
+          <button class="btn-l" style="padding:10px 20px;font-size:13px" onclick="showPage('contact',null)">Demander →</button>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="sk-card reveal" style="padding:32px;border-color:rgba(200,241,53,.2)">
+        <div class="sk-top" style="background:linear-gradient(90deg,var(--purple),var(--cyan))"></div>
+        <div style="position:absolute;top:16px;right:16px;background:var(--lime);color:var(--ink);font-size:10px;font-weight:700;padding:4px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:.06em">Populaire</div>
+        <div style="font-size:36px;margin-bottom:20px">📝</div>
+        <div class="sk-name" style="font-size:20px;margin-bottom:10px">Site Vitrine + Blog</div>
+        <div class="sk-desc" style="margin-bottom:20px">Votre site vitrine enrichi d'un blog pour partager votre expertise, améliorer votre SEO et fidéliser votre audience.</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--lime)">✓</span> Tout du site vitrine</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--lime)">✓</span> Système de blog intégré</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--lime)">✓</span> Optimisation SEO</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--lime)">✓</span> Gestion des articles</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--lime)">✓</span> Livraison : 2 semaines</li>
+        </ul>
+        <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:20px">
+          <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--lime)">Sur devis</div>
+          <button class="btn-l" style="padding:10px 20px;font-size:13px" onclick="showPage('contact',null)">Demander →</button>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="sk-card reveal" style="padding:32px">
+        <div class="sk-top" style="background:var(--orange)"></div>
+        <div style="font-size:36px;margin-bottom:20px">⚙️</div>
+        <div class="sk-name" style="font-size:20px;margin-bottom:10px">Application Web</div>
+        <div class="sk-desc" style="margin-bottom:20px">Dashboard, système de gestion, plateforme SaaS — des applications web complètes et performantes pour votre business.</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--orange)">✓</span> Interface admin complète</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--orange)">✓</span> Base de données</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--orange)">✓</span> Authentification & sécurité</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--orange)">✓</span> Déploiement cloud</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--orange)">✓</span> Livraison : 3-6 semaines</li>
+        </ul>
+        <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:20px">
+          <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--orange)">Sur devis</div>
+          <button class="btn-l" style="padding:10px 20px;font-size:13px;background:var(--orange)" onclick="showPage('contact',null)">Demander →</button>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="sk-card reveal" style="padding:32px">
+        <div class="sk-top" style="background:var(--pink)"></div>
+        <div style="font-size:36px;margin-bottom:20px">📱</div>
+        <div class="sk-name" style="font-size:20px;margin-bottom:10px">Application Mobile</div>
+        <div class="sk-desc" style="margin-bottom:20px">Applications mobiles cross-platform pour iOS et Android. Interface soignée, performances optimales.</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--pink)">✓</span> iOS & Android</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--pink)">✓</span> React Native</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--pink)">✓</span> Notifications push</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--pink)">✓</span> Publication store incluse</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--pink)">✓</span> Livraison : 4-8 semaines</li>
+        </ul>
+        <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:20px">
+          <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--pink)">Sur devis</div>
+          <button class="btn-l" style="padding:10px 20px;font-size:13px;background:var(--pink)" onclick="showPage('contact',null)">Demander →</button>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="sk-card reveal" style="padding:32px">
+        <div class="sk-top" style="background:var(--cyan)"></div>
+        <div style="font-size:36px;margin-bottom:20px">🔌</div>
+        <div class="sk-name" style="font-size:20px;margin-bottom:10px">API & Backend</div>
+        <div class="sk-desc" style="margin-bottom:20px">APIs RESTful robustes, bases de données optimisées, microservices et intégrations tierces pour vos applications.</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--cyan)">✓</span> API REST documentée</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--cyan)">✓</span> Node.js / Python</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--cyan)">✓</span> PostgreSQL / MongoDB</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--cyan)">✓</span> Sécurité & authentification</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--cyan)">✓</span> Livraison : 1-3 semaines</li>
+        </ul>
+        <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:20px">
+          <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--cyan)">Sur devis</div>
+          <button class="btn-l" style="padding:10px 20px;font-size:13px;background:var(--cyan);color:var(--ink)" onclick="showPage('contact',null)">Demander →</button>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="sk-card reveal" style="padding:32px">
+        <div class="sk-top" style="background:var(--green)"></div>
+        <div style="font-size:36px;margin-bottom:20px">🛠️</div>
+        <div class="sk-name" style="font-size:20px;margin-bottom:10px">Maintenance & Support</div>
+        <div class="sk-desc" style="margin-bottom:20px">Suivi, mises à jour, corrections de bugs et évolutions de votre site ou application existante. Tranquillité d'esprit garantie.</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--green)">✓</span> Suivi mensuel</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--green)">✓</span> Corrections de bugs</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--green)">✓</span> Mises à jour sécurité</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--green)">✓</span> Rapport mensuel</li>
+          <li style="font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px"><span style="color:var(--green)">✓</span> Support WhatsApp</li>
+        </ul>
+        <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:20px">
+          <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--green)">Sur devis</div>
+          <button class="btn-l" style="padding:10px 20px;font-size:13px;background:var(--green);color:var(--ink)" onclick="showPage('contact',null)">Demander →</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA BANNER -->
+    <div class="reveal" style="background:linear-gradient(135deg,rgba(200,241,53,.1),rgba(124,58,237,.15));border:1px solid rgba(200,241,53,.2);border-radius:var(--r2);padding:48px;text-align:center">
+      <div style="font-size:36px;margin-bottom:16px">🤝</div>
+      <h3 style="font-family:Syne,sans-serif;font-size:28px;font-weight:800;margin-bottom:12px">Un projet en tête ?</h3>
+      <p style="color:rgba(255,255,255,.5);font-size:15px;max-width:480px;margin:0 auto 28px;line-height:1.7">Décrivez-moi votre idée — je vous réponds sous 24h avec une proposition personnalisée et un devis gratuit.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <button class="btn-l" onclick="showPage('contact',null)">Obtenir un devis gratuit →</button>
+        <button class="btn-o" onclick="openWhatsApp()">💬 WhatsApp direct</button>
+      </div>
+    </div>
+
+  </section>
+  <footer><div class="foot-logo">G<em>.</em>dev</div><div class="foot-links"><a href="#" onclick="showPage('home',null)">Accueil</a><a href="#" onclick="showPage('projects',null)">Projets</a><a href="#" onclick="showPage('contact',null)">Contact</a></div><div class="foot-copy">© 2025 <em>NAMA NKOA GUERSHOM</em></div></footer>
+</div>
+
 </body>
 </html>
